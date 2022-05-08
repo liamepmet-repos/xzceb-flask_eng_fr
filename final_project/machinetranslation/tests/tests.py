@@ -5,8 +5,11 @@ METHODS:
 TestEnglishToFrench
 TestFrenchToEnglish
 '''
-import unittest
 
+import unittest
+import sys,os
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BASE)
 from translator import english_to_french, french_to_english
 
 class TestEnglishToFrench(unittest.TestCase):
@@ -29,4 +32,4 @@ class TestFrenchToEnglish(unittest.TestCase):
         '''test for translation french_to_english method'''
         self.assertEqual(french_to_english("Bonjour"),"Hello")
 
-unittest.main()
+unittest.main(verbosity=2)
